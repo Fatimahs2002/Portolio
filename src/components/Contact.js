@@ -2,7 +2,8 @@ import React, { Component, createRef } from 'react';
 import "../App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-
+// import ReCAPTCHA from "react-google-recaptcha";
+import toast from "react-hot-toast";
 export default class Contact extends Component {
     constructor(props) {
         super(props);
@@ -12,10 +13,14 @@ export default class Contact extends Component {
             name: '',
             email: '',
             subject: '',
-            message: ''
+            message: '',
+            // recaptchaToken: ''
         };
     }
-
+    handleRecaptchaChange = (token) => {
+        this.setState({ recaptchaToken: token });
+    };
+    
     componentDidMount() {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -41,22 +46,26 @@ export default class Contact extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         const { name, email, subject, message } = this.state;
-
+    
         try {
-            const response = await axios.post('http://localhost:5000/send-email', {
-                name,
-                email,
-                subject,
-                message,
+            const res = await axios.post(
+                "http://localhost:3200/send-email",
+                {
+                     name:name, email:email, subject:subject, message:message 
+                }
+            );
+            // alert("Email sent successfully!");
+            toast.success("Email sent successfully!");
+            this.setState({
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
             });
-
-            if (response.status === 200) {
-                alert('Message sent successfully!');
-                this.setState({ name: '', email: '', subject: '', message: '' });
-            }
         } catch (error) {
-            console.error('Failed to send message', error);
-            alert('Failed to send message. Please try again.');
+            console.error(error);
+            // alert("Failed to send email.");
+            toast.error("Failed to send email.");
         }
     };
 
@@ -124,12 +133,18 @@ export default class Contact extends Component {
                                     required
                                 />
                             </div>
+                            {/* <ReCAPTCHA
+    sitekey="6LcFJRArAAAAAFcvL9tMdV-EdoJOrNhRI4KK5ZAm"
+    onChange={this.handleRecaptchaChange}
+   
+ 
+/> */}
 
                             <input
                                 type="submit"
                                 value="Send Message"
                                 className="w-lg-25 w-50 mt-4 btn "
-                                style={{ alignSelf: 'center',background:' #695aa6',color:'white',height:'50px' }}
+                                style={{ alignSelf: 'center', background: '#695aa6', color: 'white', height: '50px' }}
                             />
                         </form>
                     </div>
@@ -138,4 +153,3 @@ export default class Contact extends Component {
         );
     }
 }
-

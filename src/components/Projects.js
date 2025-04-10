@@ -119,7 +119,7 @@ export default class Projects extends Component {
       </ul>
       <div className="project-links">
         <a
-          href="https://github.com/Fatimahs2002/menu_violet"
+          href="https://github.com/Fatimahs2002/Maintenance-Brainkets.git"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary btn-sm"
