@@ -43,32 +43,32 @@ export default class Contact extends Component {
         this.setState({ [name]: value });
     };
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        const { name, email, subject, message } = this.state;
-    
-        try {
-            const res = await axios.post(
-                "http://localhost:3200/send-email",
-                {
-                     name:name, email:email, subject:subject, message:message 
-                }
-            );
-            // alert("Email sent successfully!");
-            toast.success("Email sent successfully!");
-            this.setState({
-                name: '',
-                email: '',
-                subject: '',
-                message: ''
-            });
-        } catch (error) {
-            console.error(error);
-            // alert("Failed to send email.");
-            toast.error("Failed to send email.");
-        }
-    };
+handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, subject, message } = this.state;
 
+    try {
+        const res = await axios.post(
+            "https://apicontact-form.onrender.com/send-email",
+            {
+                name:name, email:email, subject:subject, message:message
+            }
+        );
+        
+        toast.success("Email sent successfully!");
+        
+        this.setState({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        });
+    } catch (error) {
+        console.error(error);
+        console.error("Backend Response:", error.response ? error.response.data : error.message); // Log the backend response
+        toast.error("Failed to send email.");
+    }
+};
     render() {
         const { isVisible, name, email, subject, message } = this.state;
         return (
