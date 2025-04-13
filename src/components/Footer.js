@@ -80,7 +80,10 @@ const Footer = () => {
             <h5 className="mb-3 ps-lg-5" style={{ color: "#695aa6" }}>Contact Information</h5>
             <ul className="list-unstyled ps-lg-5" style={{ color: "#695aa6" }}>
               <li><p><b>Email:</b> fatimahassanhassan8@gmail.com</p></li>
-              <li><p><b>Phone:</b> +961 81 724 159</p></li>
+              <li><p><b>Phone:</b> 
+              +961 81 724 159
+              </p>
+              </li>
               <li><p><b>Location:</b> Lebanon, Tyre</p></li>
             </ul>
           </div>
