@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import cvFile from "../assets/CV fatima hassan.pdf"; // Correctly import the CV file
+import cvFile from "../assets/Fatima Hassan-CV.pdf"; // Correctly import the CV file
 
 export default class Header extends Component {
   render() {
