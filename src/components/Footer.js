@@ -84,7 +84,7 @@ const Footer = () => {
               +961 81 724 159
               </p>
               </li>
-              <li><p><b>Location:</b> Lebanon, Tyre</p></li>
+              <li><p><b>Location:</b> Tyre, Lebanon</p></li>
             </ul>
           </div>
 
