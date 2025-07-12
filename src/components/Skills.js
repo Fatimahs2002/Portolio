@@ -5,14 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faHtml5, faCss3Alt, faJs, faBootstrap, 
   faPhp, faNode, faNodeJs, faGitAlt, 
-  faGithub, faReact, faDocker 
+  faGithub, faReact, faDocker,faLaravel ,
 } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 
 import { 
   SiTailwindcss, SiNextdotjs, 
   SiTypescript, SiPrimereact, 
-  SiMongodb, SiExpress, SiRedux 
+  SiMongodb, SiExpress, SiRedux ,SiSqlite
 } from 'react-icons/si';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -28,7 +28,8 @@ const frontendSkills = [
   { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-500" />, level: 'Advanced' },
   { name: 'TypeScript', icon: <SiTypescript className="text-blue-500" />, level: 'Advanced' },
   { name: 'PrimeReact', icon: <SiPrimereact className="text-indigo-500" />, level: 'Advanced' },
-  { name: 'Redux', icon: <SiRedux className="text-purple-500" />, level: 'Advanced' },
+  { name: 'Redux', icon: <SiRedux className="text-purple-500" />, level: 'Advanced' }
+ 
 ];
 
 const backendSkills = [
@@ -39,7 +40,10 @@ const backendSkills = [
   { name: 'MongoDB', icon: <SiMongodb className="text-green-500" />, level: 'Advanced' },
   { name: 'Git', icon: <FontAwesomeIcon icon={faGitAlt} rotation={45} />, level: 'Advanced' },
   { name: 'Github', icon: <FontAwesomeIcon icon={faGithub} rotation={45} />, level: 'Advanced' },
-  { name: 'Docker', icon: <FontAwesomeIcon icon={faDocker} rotation={45} />, level: 'Advanced' }
+  { name: 'Docker', icon: <FontAwesomeIcon icon={faDocker} rotation={45} />, level: 'Advanced' },
+   { name: 'Laravel', icon: <FontAwesomeIcon icon={faLaravel} />, level: 'Expert' },
+   { name: 'SQLite',icon: <SiSqlite className="text-purple-500" />, level: 'Advanced' }
+ 
 ];
 
 export default class Skills extends Component {
